@@ -1,13 +1,13 @@
-public class CreditAccount extends Account {
+import java.time.LocalDate;
+
+public class CreditAccount extends AbstractAccount {
     public CreditAccount(double initialBalance) {
         super(initialBalance);
     }
 
     @Override
     public void take(double amount) {
-        if (amount > 0 && amount <= getAmount()) {
-            double fee = amount * 0.01; // 1% fee
-            super.take(amount + fee);
-        }
+        double fee = amount * 0.01;
+        super.take(amount + fee);
     }
 }

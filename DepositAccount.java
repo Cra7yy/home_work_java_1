@@ -1,6 +1,6 @@
 import java.time.LocalDate;
 
-public class DepositAccount extends Account {
+public class DepositAccount extends AbstractAccount {
     private LocalDate lastWithdrawalDate;
 
     public DepositAccount(double initialBalance) {
@@ -12,7 +12,7 @@ public class DepositAccount extends Account {
     public void take(double amount) {
         LocalDate currentDate = LocalDate.now();
         if (lastWithdrawalDate == null || currentDate.isAfter(lastWithdrawalDate.plusMonths(1))) {
-            super.take(amount);
+            doTake(amount);
             lastWithdrawalDate = currentDate;
         }
     }
