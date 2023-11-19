@@ -1,3 +1,4 @@
+package main;
 public class FixedAmountAccount extends AbstractAccount {
 
     public FixedAmountAccount(double initialBalance) {
